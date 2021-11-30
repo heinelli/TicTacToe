@@ -30,27 +30,31 @@ Module TicTacToe
         Dim userInput As String
 
         Do Until CInt(row) <= 2
-            userInput = Console.ReadLine()
-            rowCheck = userInput.Chars(0)
-            column = userInput.Chars(1)
-            If rowCheck = "A" Then
-                row = "0"
-            ElseIf rowCheck = "B" Then
-                row = "1"
-            ElseIf rowCheck = "C" Then
-                row = "2"
-            Else
-                row = "3"
-            End If
+            Try
+                userInput = Console.ReadLine()
+                rowCheck = userInput.Chars(0)
+                column = userInput.Chars(1)
+                If rowCheck = "A" Then
+                    row = "0"
+                ElseIf rowCheck = "B" Then
+                    row = "1"
+                ElseIf rowCheck = "C" Then
+                    row = "2"
+                Else
+                    row = "3"
+                End If
 
-            If CInt(column) > 2 Then
-                row = "3"
-            End If
+                If CInt(column) > 2 Then
+                    row = "3"
+                End If
 
-            If row = "3" Then
-                MsgBox("test")
-            End If
+                If row = "3" Then
+                    MsgBox("test")
+                End If
 
+            Catch
+                MsgBox("Wrong")
+            End Try
         Loop
 
         Console.WriteLine(row & column)
